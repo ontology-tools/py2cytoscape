@@ -7,9 +7,6 @@ Convert cytoscape.js style graphs from/to NetworkX object.
 https://networkx.github.io/
 
 """
-import warnings
-warnings.warn('\n\n\n**** util.util_networkx will be deprecated in the next py2cytoscape release. ****\n\n\n')
-
 import networkx as nx
 
 # Special Keys
@@ -107,7 +104,7 @@ def from_networkx(g, layout=None, scale=DEF_SCALE):
     cygraph[DATA] = __map_table_data(g.graph.keys(), g.graph)
 
     for i, node_id in enumerate(nodes):
-        new_node = __create_node(g.node[node_id], node_id)
+        new_node = __create_node(g.nodes[node_id], node_id)
         if layout is not None:
             new_node['position'] = pos[i]
 
